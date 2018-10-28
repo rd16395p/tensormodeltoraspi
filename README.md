@@ -8,7 +8,7 @@ Camera that works with raspberry pi <br />
 Set-up:
 Make sure to allow your raspberry pi to be used - here is a good guide; https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera
 
-Install:
+Install: <br />
 pip install tensorflow <br />
 pip install numpy <br />
 pip install pandas <br />
