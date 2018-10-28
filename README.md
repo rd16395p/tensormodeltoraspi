@@ -14,7 +14,8 @@ python3 -m pip install numpy <br />
 python3 -m pip install pandas <br />
 
 To run:
-Open up any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run!
+Open the file called picameraeval.py any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run! <br />
+You can also try python3 picameraeval.py on the terminal. <br />
 
 The results will be in the first directory called "results_withpredcnn2.csv" (maybe can be improved in the future)
 
