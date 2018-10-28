@@ -3,6 +3,7 @@ This is code to evaulate if a face is really a face on a raspberry pi interface 
 
 Items needed:
 Raspberry Pi (3b was used here)
+
 Camera that works with raspberry pi
 
 Set-up:
