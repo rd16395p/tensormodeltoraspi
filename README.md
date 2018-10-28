@@ -17,5 +17,7 @@ To run:
 Open up any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run!
 
 The results will be in the first directory called "results_withpredcnn2.csv" (maybe can be improved in the future)
+
 "classes:" 1 - face
+
 "classes:" 0 - not a face
