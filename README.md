@@ -1,5 +1,5 @@
 # tensormodeltoraspi
-This is code to evaulate if a face is really a face on a raspberry pi interface or not using a pretrained model researched by Becca. The model is included in the picameraeval.py file. 
+This is code to evaulate if a face is really a face or not on a raspberry pi interface by using a pretrained model researched by Becca. The model is included in the picameraeval.py file. 
 
 Items needed:
 Raspberry Pi (3b was used here) <br />
