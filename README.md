@@ -9,9 +9,9 @@ Set-up:
 Make sure to allow your raspberry pi to be used - here is a good guide; https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera
 
 Install: <br />
-pip install tensorflow <br />
-pip install numpy <br />
-pip install pandas <br />
+python3 -m pip install tensorflow <br />
+python3 -m pip install numpy <br />
+python3 -m pip install pandas <br />
 
 To run:
 Open up any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run!
