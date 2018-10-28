@@ -1,10 +1,21 @@
 # tensormodeltoraspi
+This is code to evaulate if a face is really a face on a raspberry pi interface or not using a pretrained model researched by Becca. The model is included in the picameraeval.py file. 
 
-This will be the area to work on a way for tensorflow models to be connected to raspiberry pi, to use the model for real time anaylsis. 
+Items needed:
+Raspberry Pi (3b was used here)
+Camera that works with raspberry pi
 
-Basically it will use a model that was trained on MNIST in order to detect digits (0-9) in real time.
+Set-up:
+Make sure to allow your raspberry pi to be used - here is a good guide; https://thepihut.com/blogs/raspberry-pi-tutorials/16021420-how-to-install-use-the-raspberry-pi-camera
 
-Parts needed;
-MNIST Pretrained model (I have done this 99.8% acc)
-Raspi zero (have)
-Connection from model to raspi input (perhaps in python with tensorflow and opencv)
+Install:
+pip install tensorflow
+pip install numpy
+pip install pandas
+
+To run:
+Open up any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run!
+
+The results will be in the first directory called "results_withpredcnn2.csv" (maybe can be improved in the future)
+"classes:" 1 - face
+"classes:" 0 - not a face
