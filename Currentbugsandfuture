@@ -1,0 +1,5 @@
+change shape (100,100,3) to (1000,1) by mutplying first two rows into (1000,3) and then make that (1000,1) by putting r,g,b together somehow.
+
+future-
+more than one photo?
+button to take photos
