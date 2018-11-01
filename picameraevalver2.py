@@ -54,7 +54,10 @@ def cnn_model_fn(features, labels, mode):
   # Input Layer
     input_layer = tf.reshape(features["x"], [-1, 100, 100, 1])
   # Convolutional Layer #1
-
+  # Computes 32 features using a 5x5 filter with ReLU activation.
+  # Padding is added to preserve width and height.
+  # Input Tensor Shape: [batch_size, 25, 25, 1]
+  # Output Tensor Shape: [batch_size, 25, 25, 32]
     conv1 = tf.layers.conv2d(
         inputs=input_layer,
         filters=32,
@@ -63,25 +66,42 @@ def cnn_model_fn(features, labels, mode):
         activation=tf.nn.relu)
 
   # Pooling Layer #1
-
+  # First max pooling layer with a 2x2 filter and stride of 2
+  # Input Tensor Shape: [batch_size, 25, 25, 32]
+  # Output Tensor Shape: [batch_size, 12, 12, 32]
     pool1 = tf.layers.max_pooling2d(inputs=conv1, pool_size=[2, 2], strides=10)
 
   # Convolutional Layer #2
-
+  # Computes 64 features using a 5x5 filter.
+  # Padding is added to preserve width and height.
+  # Input Tensor Shape: [batch_size, 12, 12, 32]
+  # Output Tensor Shape: [batch_size, 12, 12, 64]
     conv2 = tf.layers.conv2d(
         inputs=pool1,
         filters=92,
         kernel_size=[2, 2],
         padding="same",
         activation=tf.nn.relu)
-  # Pooling Layer #2
 
-    pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=2)
+    pool2 = tf.layers.max_pooling2d(inputs=conv2, pool_size=[2, 2], strides=3)
 
-  # Dense Layer
 
-    pool2_flat = tf.reshape(pool2, [-1, 5 * 5 * 92])
-    dense = tf.layers.dense(inputs=pool2_flat, units=1024, activation=tf.nn.relu)
+    conv3 = tf.layers.conv2d(
+            inputs=pool2,
+            filters=182,#92,
+            kernel_size=[2, 2],
+            padding="same",
+            activation=tf.nn.relu)
+
+    pool3 = tf.layers.max_pooling2d(inputs=conv3, pool_size=[2, 2], strides=2)
+
+      # Dense Layer
+      # Flatten tensor into a batch of vectors
+      # Input Tensor Shape: [batch_size, 6, 6, 64]
+      # Output Tensor Shape: [batch_size, 6 * 6 * 64]
+    pool3_flat = tf.reshape(pool3, [-1, 1 * 1 * 182])
+
+    dense = tf.layers.dense(inputs=pool3_flat, units=1024, activation=tf.nn.relu)
     dropout = tf.layers.dropout(
       inputs=dense, rate=0.4, training=mode == tf.estimator.ModeKeys.TRAIN)
 
@@ -97,6 +117,7 @@ def cnn_model_fn(features, labels, mode):
   }
 
     if mode == tf.estimator.ModeKeys.PREDICT:
+        predict_op = ()
         return tf.estimator.EstimatorSpec(mode=mode, predictions=predictions)
 
   # Calculate Loss (for both TRAIN and EVAL modes)
@@ -210,7 +231,7 @@ def predict(X_test,y_test):
 
 #works
 with tf.Session() as sess:
-    loader = tf.train.import_meta_graph('./model/model.ckpt-181000.meta')
+    loader = tf.train.import_meta_graph('./model/model.ckpt-1346000.meta')
     loader.restore(sess, tf.train.latest_checkpoint('./model'))
     #evaluate(X_test,y_test)
     predict_results = predict(X_test_f,y_test)
