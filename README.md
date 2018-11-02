@@ -1,5 +1,5 @@
 # Face or not?
-This is code to evaulate if a face is really a face or not on a raspberry pi interface by using a pretrained model researched by Becca. The model is included in the picameraeval.py file. 
+This is code to evaulate if a face is really a face or not on a raspberry pi interface by using a pretrained model researched by Becca. The model is included in the picameraeval.py file.
 
 Items needed:
 Raspberry Pi (3b was used here) <br />
@@ -14,11 +14,13 @@ python3 -m pip install numpy <br />
 python3 -m pip install pandas <br />
 
 To run:
-Open the file called picameraeval.py any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run! <br />
+Open the file called run.py any pre-installed python IDEs on raspberry pi such as Thorny or Geanie, and run! <br />
 You can also try python3 picameraeval.py on the terminal. <br />
 
 The results will be in the first directory called "results_withpredcnn2.csv" (maybe can be improved in the future)
 
-"classes:" 1 - face
+"classes:" 1 - face <br />
 
-"classes:" 0 - not a face
+"classes:" 0 - not a face <br />
+
+Check out "demo" folder for smaller python files I used to create this! <br />
