@@ -231,7 +231,7 @@ def predict(X_test,y_test):
 
 #works
 with tf.Session() as sess:
-    loader = tf.train.import_meta_graph('./model/model.ckpt-181000')
+    loader = tf.train.import_meta_graph('./model/model.ckpt-181000.meta')
     loader.restore(sess, tf.train.latest_checkpoint('./model'))
     #evaluate(X_test,y_test)
     predict_results = predict(X_test_f,y_test)
