@@ -18,7 +18,7 @@ with picamera.PiCamera() as camera:
         time.sleep(2)
         output = np.empty((112 * 128 * 3,), dtype=np.uint8)
         camera.capture(output, 'rgb',resize=(100, 100))
-        
+
 output = output.reshape((112, 128, 3))
 output = output[:100, :100, :]
 output = output.reshape((100, 100, 3))
@@ -40,7 +40,7 @@ X_test = X_input_gray
 
 X_test = np.asarray(X_test, dtype=np.float)
 X_test_f = X_test.reshape((10000,1))
-X_test_f = np.transpose(X_test_f) 
+X_test_f = np.transpose(X_test_f)
 y_test = X_label#.values.ravel()
 y_test = np.asarray(y_test, dtype=np.int32)
 y_test = y_test.reshape((1,))
@@ -231,7 +231,7 @@ def predict(X_test,y_test):
 
 #works
 with tf.Session() as sess:
-    loader = tf.train.import_meta_graph('./model/model.ckpt-1346000.meta')
+    loader = tf.train.import_meta_graph('./model/model.ckpt-181000')
     loader.restore(sess, tf.train.latest_checkpoint('./model'))
     #evaluate(X_test,y_test)
     predict_results = predict(X_test_f,y_test)
